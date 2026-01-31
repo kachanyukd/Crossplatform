@@ -1,0 +1,3 @@
+Hello world! This is a simple text.
+It has several sentences. And some punctuation, like commas, periods, and exclamation marks!
+Can you count the words?
