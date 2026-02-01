@@ -63,7 +63,7 @@ public class ConverterGUI {
                 output.setText(String.valueOf(result));
 
             } catch (Exception ex) {
-                output.setText("Error");
+                output.setText("error");
             }
         });
 
