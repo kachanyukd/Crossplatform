@@ -1,4 +1,4 @@
-package com.yourname.rpw;
+package com.kachanyuk.rpw;
 
 public enum Move {
     WELL("Криниця"),

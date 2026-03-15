@@ -1,4 +1,4 @@
-package com.yourname.rpw;
+package com.kachanyuk.rpw;
 
 import java.util.ArrayList;
 import java.util.List;

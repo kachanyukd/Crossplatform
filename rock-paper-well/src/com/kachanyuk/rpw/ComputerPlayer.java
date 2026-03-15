@@ -1,4 +1,4 @@
-package com.yourname.rpw;
+package com.kachanyuk.rpw;
 import java.util.List;
 import java.util.Random;
 
