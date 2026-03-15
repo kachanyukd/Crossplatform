@@ -1,0 +1,11 @@
+Session=1;Result=COMPUTER_WIN;UserMoves=SCISSORS;ComputerMoves=WELL
+Session=2;Result=COMPUTER_WIN;UserMoves=SCISSORS;ComputerMoves=WELL
+Session=3;Result=USER_WIN;UserMoves=SCISSORS;ComputerMoves=PAPER
+Session=4;Result=COMPUTER_WIN;UserMoves=PAPER;ComputerMoves=SCISSORS
+Session=5;Result=COMPUTER_WIN;UserMoves=WELL;ComputerMoves=PAPER
+Session=1;Result=USER_WIN;UserMoves=WELL;ComputerMoves=SCISSORS
+Session=2;Result=USER_WIN;UserMoves=WELL,WELL;ComputerMoves=WELL,SCISSORS
+Session=3;Result=COMPUTER_WIN;UserMoves=WELL,WELL,WELL;ComputerMoves=WELL,WELL,PAPER
+Session=1;Result=COMPUTER_WIN;UserMoves=WELL;ComputerMoves=PAPER
+Session=2;Result=COMPUTER_WIN;UserMoves=WELL;ComputerMoves=PAPER
+Session=3;Result=COMPUTER_WIN;UserMoves=WELL;ComputerMoves=PAPER

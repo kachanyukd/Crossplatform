@@ -1,39 +1,73 @@
 package com.yourname.rpw;
-
-import java.util.*;
+import java.util.List;
+import java.util.Random;
 
 public class ComputerPlayer {
+    private final Random random = new Random();
 
-    private Random random = new Random();
-    private Map<Move, Integer> userMoves = new HashMap<>();
-
-    public Move randomMove() {
-        Move[] moves = Move.values();
-        return moves[random.nextInt(moves.length)];
+    public Move getMove(int mode, List<Move> currentSessionUserMoves, List<Move> previousSessionsUserMoves) {
+        switch (mode) {
+            case 1:
+                return getRandomMove();
+            case 2:
+                return getMoveBasedOnCurrentSession(currentSessionUserMoves);
+            case 3:
+                return getMoveBasedOnPreviousSessions(previousSessionsUserMoves);
+            default:
+                return getRandomMove();
+        }
     }
 
-    public Move adaptiveMove() {
-
-        if (userMoves.isEmpty()) {
-            return randomMove();
+    private Move getRandomMove() {
+        int value = random.nextInt(3);
+        if (value == 0) {
+            return Move.WELL;
+        } else if (value == 1) {
+            return Move.SCISSORS;
+        } else {
+            return Move.PAPER;
         }
-
-        Move mostUsed = Collections.max(userMoves.entrySet(),
-                Map.Entry.comparingByValue()).getKey();
-
-        switch (mostUsed) {
-            case WELL:
-                return Move.PAPER;
-            case SCISSORS:
-                return Move.WELL;
-            case PAPER:
-                return Move.SCISSORS;
-        }
-
-        return randomMove();
     }
 
-    public void recordUserMove(Move move) {
-        userMoves.put(move, userMoves.getOrDefault(move, 0) + 1);
+    private Move getMoveBasedOnCurrentSession(List<Move> currentSessionUserMoves) {
+        if (currentSessionUserMoves == null || currentSessionUserMoves.isEmpty()) {
+            return getRandomMove();
+        }
+
+        Move predictedUserMove = getMostFrequentMove(currentSessionUserMoves);
+        return Move.getWinningMoveAgainst(predictedUserMove);
+    }
+
+    private Move getMoveBasedOnPreviousSessions(List<Move> previousSessionsUserMoves) {
+        if (previousSessionsUserMoves == null || previousSessionsUserMoves.isEmpty()) {
+            return getRandomMove();
+        }
+
+        Move predictedUserMove = getMostFrequentMove(previousSessionsUserMoves);
+        return Move.getWinningMoveAgainst(predictedUserMove);
+    }
+
+    private Move getMostFrequentMove(List<Move> moves) {
+        int wellCount = 0;
+        int scissorsCount = 0;
+        int paperCount = 0;
+
+        for (Move move : moves) {
+            if (move == Move.WELL) {
+                wellCount++;
+            } else if (move == Move.SCISSORS) {
+                scissorsCount++;
+            } else if (move == Move.PAPER) {
+                paperCount++;
+            }
+        }
+
+        if (wellCount >= scissorsCount && wellCount >= paperCount) {
+            return Move.WELL;
+        } else if (scissorsCount >= wellCount && scissorsCount >= paperCount) {
+            return Move.SCISSORS;
+        } else {
+            return Move.PAPER;
+        }
     }
 }
