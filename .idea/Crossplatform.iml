@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/ConverterApp/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/game-of-life/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/rock-paper-well/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CoinGame/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
